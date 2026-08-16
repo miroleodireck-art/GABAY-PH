@@ -9,6 +9,9 @@ app.use(express.json());
 
 // Serve your website files
 app.use(express.static(path.join(__dirname, "public")));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 // Test route
 app.get("/api/test", (req, res) => {
